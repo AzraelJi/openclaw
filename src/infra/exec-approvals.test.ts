@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { makePathEnv, makeTempDir } from "./exec-approvals-test-helpers.js";
 import {
@@ -666,6 +664,8 @@ describe("exec approvals shell allowlist (chained commands)", () => {
     }
   });
 });
+import { normalizeSafeBins } from "./exec-approvals-allowlist.js";
+import { evaluateExecAllowlist, type ExecAllowlistEntry } from "./exec-approvals.js";
 
 describe("exec approvals allowlist evaluation", () => {
   function evaluateAutoAllowSkills(params: {
